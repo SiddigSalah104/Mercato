@@ -8,13 +8,99 @@
   padding-block: var(--space-xl);
 }
 
+.hero {
+  position: relative;
+  overflow: hidden; /* hides the edges of the zoomed photo */
+  isolation: isolate; /* keeps the photo layers inside the hero */
+}
+
+/* Background slideshow: the photos are stacked on top of each other
+   and take turns appearing (fade + slow zoom). */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  background-position: center;
+  background-size: cover;
+  opacity: 0;
+  /* 5 photos × 6 s = 30 s per full cycle.
+     Each photo has its own delay (set in Home.jsx). */
+  animation: heroSlide 30s linear infinite both;
+}
+
+/* Without animation (reduced motion), only the first photo is shown */
+.hero-slide:first-child {
+  opacity: 1;
+}
+
+/* One photo's turn = 20% of the cycle (6 s):
+   fades in, stays while zooming slowly, then fades out */
+@keyframes heroSlide {
+  0% {
+    opacity: 0;
+    transform: scale(1);
+  }
+  4% {
+    opacity: 1;
+  }
+  20% {
+    opacity: 1;
+  }
+  24% {
+    opacity: 0;
+    transform: scale(1.12);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.12);
+  }
+}
+
+/* Dark veil above the photo so the text stays readable
+   (same espresso colour as --color-dark) */
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(rgba(42, 26, 18, 0.45), rgba(42, 26, 18, 0.7));
+}
+
 .hero-inner {
   max-width: 760px;
   text-align: center;
+  position: relative;
+  z-index: 1;
 }
 
 .hero-eyebrow {
   color: var(--color-yellow);
+}
+
+/* Hero content appears one piece after another (increasing delays) */
+.hero-inner > * {
+  animation: fadeUp 0.8s ease-out both;
+}
+
+.hero-inner > :nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.hero-inner > :nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.hero-inner > :nth-child(3) {
+  animation-delay: 0.5s;
+}
+
+.hero-inner > :nth-child(4) {
+  animation-delay: 0.7s;
 }
 
 .hero h1 {

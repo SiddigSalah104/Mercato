@@ -5,6 +5,17 @@ import './Home.css'
 // Accent colour for each card (in order: green, yellow, red)
 const cardColors = ['green', 'yellow', 'red']
 
+// Hero slideshow photos (in public/images), in display order.
+// If you add or remove a photo, adjust the 30s in Home.css
+// (number of photos × 6 s) and the percentages in @keyframes heroSlide.
+const heroPhotos = [
+  'plateau-viandes-sautees.jpg',
+  'salle-murs-pierre.jpg',
+  'plateau-injera-viandes.jpg',
+  'ceremonie-cafe.jpg',
+  'sambusas.jpg',
+]
+
 export default function Home() {
   const { t } = useLanguage()
 
@@ -12,6 +23,19 @@ export default function Home() {
     <>
       {/* ---------- Hero section ---------- */}
       <section className="hero">
+        {/* Background slideshow (decorative): animation set in Home.css */}
+        <div className="hero-bg" aria-hidden="true">
+          {heroPhotos.map((file, i) => (
+            <span
+              key={file}
+              className="hero-slide"
+              style={{
+                backgroundImage: `url(/images/${file})`,
+                animationDelay: `${i * 6}s`, // each photo waits for its turn
+              }}
+            />
+          ))}
+        </div>
         <div className="container hero-inner">
           <span className="eyebrow hero-eyebrow">{t('common.cuisine')}</span>
           <h1>
