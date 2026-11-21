@@ -9,8 +9,12 @@
 .header-inner {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: var(--space-md);
   height: var(--header-height);
+}
+
+.logo {
+  margin-inline-end: auto; /* pushes the rest to the other side */
 }
 
 .logo {
@@ -39,6 +43,14 @@
   display: flex;
   align-items: center;
   gap: var(--space-md);
+}
+
+/* Language switcher + hamburger button, grouped together */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  order: 2; /* placed after the menu on large screens */
 }
 
 .nav ul {

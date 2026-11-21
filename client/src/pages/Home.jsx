@@ -1,67 +1,49 @@
 import { restaurant } from '../data/restaurant'
+import { useLanguage } from '../translations/LanguageContext'
 import './Home.css'
 
-// PLACEHOLDER CONTENT: the texts below are temporary.
-// They will be replaced by the restaurant's real texts and photos
-// once they are validated.
-const highlights = [
-  {
-    title: 'Le partage',
-    text: 'Les plats sont servis ensemble sur un grand plateau d’injera, à partager à la main, comme en Éthiopie.',
-    color: 'green',
-  },
-  {
-    title: 'Les classiques',
-    text: 'Doro wot, tibs, kitfo… des recettes traditionnelles aux épices berbéré.',
-    color: 'yellow',
-  },
-  {
-    title: 'Végétarien & vegan',
-    text: 'Shiro, misir, alicha : une large sélection de plats sans viande.',
-    color: 'red',
-  },
-]
+// Accent colour for each card (in order: green, yellow, red)
+const cardColors = ['green', 'yellow', 'red']
 
 export default function Home() {
+  const { t } = useLanguage()
+
   return (
     <>
       {/* ---------- Hero section ---------- */}
       <section className="hero">
         <div className="container hero-inner">
-          <span className="eyebrow hero-eyebrow">{restaurant.cuisine}</span>
+          <span className="eyebrow hero-eyebrow">{t('common.cuisine')}</span>
           <h1>
-            Bienvenue chez <span className="hero-name">Mercato</span>
+            {t('home.welcome')} <span className="hero-name">Mercato</span>
           </h1>
-          <p className="hero-lead">
-            Les saveurs de l’Éthiopie au cœur de Genève, à deux pas de la gare
-            Cornavin.
-          </p>
+          <p className="hero-lead">{t('home.lead')}</p>
           <div className="hero-actions">
             <a href="/reservations" className="btn btn-primary">
-              Réserver une table
+              {t('home.reserveTable')}
             </a>
             <a href="/menu" className="btn btn-outline">
-              Voir le menu
+              {t('home.seeMenu')}
             </a>
           </div>
         </div>
       </section>
 
       {/* ---------- Practical info strip ---------- */}
-      <section className="info-strip" aria-label="Informations pratiques">
+      <section className="info-strip" aria-label={t('home.practicalInfo')}>
         <div className="container info-grid">
           <div>
-            <span className="info-label">Horaires</span>
-            <span>{restaurant.hours.summary}</span>
+            <span className="info-label">{t('home.hoursLabel')}</span>
+            <span>{t('common.hours')}</span>
           </div>
           <div>
-            <span className="info-label">Adresse</span>
+            <span className="info-label">{t('home.addressLabel')}</span>
             <a href={restaurant.address.mapsUrl} target="_blank" rel="noreferrer">
               {restaurant.address.street}, {restaurant.address.city}
             </a>
           </div>
           <div>
-            <span className="info-label">Téléphone</span>
+            <span className="info-label">{t('home.phoneLabel')}</span>
             <a href={restaurant.phone.href}>{restaurant.phone.display}</a>
           </div>
         </div>
@@ -71,12 +53,12 @@ export default function Home() {
       <section className="section">
         <div className="container">
           <div className="section-head">
-            <span className="eyebrow">Notre cuisine</span>
-            <h2>Une table à partager</h2>
+            <span className="eyebrow">{t('home.ourCuisine')}</span>
+            <h2>{t('home.sharedTable')}</h2>
           </div>
           <div className="cards">
-            {highlights.map((item) => (
-              <article key={item.title} className={`card card-${item.color}`}>
+            {t('home.highlights').map((item, i) => (
+              <article key={item.title} className={`card card-${cardColors[i]}`}>
                 <h3>{item.title}</h3>
                 <p>{item.text}</p>
               </article>
@@ -88,14 +70,14 @@ export default function Home() {
       {/* ---------- Call to action ---------- */}
       <section className="container">
         <div className="cta">
-          <h2>Envie de goûter ?</h2>
-          <p>Réservez votre table ou commandez à emporter.</p>
+          <h2>{t('home.ctaTitle')}</h2>
+          <p>{t('home.ctaText')}</p>
           <div className="hero-actions">
             <a href="/reservations" className="btn btn-primary">
-              Réserver
+              {t('common.reserve')}
             </a>
             <a href="/commander" className="btn btn-outline">
-              Commander
+              {t('common.order')}
             </a>
           </div>
         </div>

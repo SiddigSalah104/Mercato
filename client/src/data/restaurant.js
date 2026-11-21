@@ -1,11 +1,12 @@
 // Restaurant information, grouped in one place.
 // Every value here was confirmed by the owner (on 2026-11-21).
-// To change a phone number or the opening hours, edit only this file.
+// To change a phone number or a link, edit only this file.
+// Texts that change with the language (cuisine, opening hours…)
+// live in the src/translations/ folder.
 
 export const restaurant = {
   name: 'Mercato',
   fullName: 'Mercato Ethiopian Restaurant',
-  cuisine: 'Cuisine éthiopienne',
   address: {
     street: 'Rue du Môle 18',
     city: '1201 Genève',
@@ -15,9 +16,6 @@ export const restaurant = {
   phone: {
     display: '022 900 08 11',
     href: 'tel:+41229000811',
-  },
-  hours: {
-    summary: 'Tous les jours · 11h30 – 23h00',
   },
   social: {
     instagram: 'https://www.instagram.com/ethiopian_restaurant_mercato/',
