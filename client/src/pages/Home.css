@@ -1,0 +1,143 @@
+/* ---------- Hero ---------- */
+.hero {
+  background:
+    radial-gradient(circle at 80% 20%, rgba(232, 185, 49, 0.18), transparent 45%),
+    radial-gradient(circle at 10% 90%, rgba(194, 53, 43, 0.2), transparent 40%),
+    var(--color-dark);
+  color: var(--color-text-on-dark);
+  padding-block: var(--space-xl);
+}
+
+.hero-inner {
+  max-width: 760px;
+  text-align: center;
+}
+
+.hero-eyebrow {
+  color: var(--color-yellow);
+}
+
+.hero h1 {
+  font-size: clamp(2.4rem, 6vw, 4.2rem); /* grows with the screen width */
+}
+
+.hero-name {
+  color: var(--color-yellow);
+}
+
+.hero-lead {
+  font-size: 1.15rem;
+  opacity: 0.85;
+  margin-bottom: var(--space-lg);
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-sm);
+}
+
+/* ---------- Info strip ---------- */
+.info-strip {
+  background: var(--color-surface);
+  box-shadow: var(--shadow);
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-md);
+  padding-block: var(--space-md);
+  text-align: center;
+}
+
+.info-grid > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.info-grid a {
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.info-grid a:hover {
+  color: var(--color-primary);
+}
+
+.info-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+/* ---------- Generic section ---------- */
+.section {
+  padding-block: var(--space-xl);
+}
+
+.section-head {
+  text-align: center;
+  margin-bottom: var(--space-lg);
+}
+
+.section-head h2 {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+}
+
+/* ---------- Cards ---------- */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--space-md);
+}
+
+.card {
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  padding: var(--space-lg) var(--space-md);
+  box-shadow: var(--shadow);
+  border-top: 5px solid;
+}
+
+.card h3 {
+  font-size: 1.4rem;
+}
+
+.card p {
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+.card-green {
+  border-color: var(--color-green);
+}
+
+.card-yellow {
+  border-color: var(--color-yellow);
+}
+
+.card-red {
+  border-color: var(--color-red);
+}
+
+/* ---------- Final call to action ---------- */
+.cta {
+  background: var(--color-dark);
+  color: var(--color-text-on-dark);
+  border-radius: var(--radius);
+  padding: var(--space-xl) var(--space-md);
+  text-align: center;
+}
+
+.cta h2 {
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  color: var(--color-yellow);
+}
+
+.cta p {
+  opacity: 0.85;
+  margin-bottom: var(--space-md);
+}

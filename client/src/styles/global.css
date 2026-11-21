@@ -1,0 +1,162 @@
+/* ============================================================
+   VISUAL IDENTITY: Mercato
+   The site's colours, fonts and spacing are all defined here.
+   To change a colour everywhere, edit only this block.
+   ============================================================ */
+:root {
+  /* Warm background colours (coffee and earth) */
+  --color-bg: #faf5ec;          /* cream, page background */
+  --color-surface: #ffffff;     /* cards */
+  --color-dark: #2a1a12;        /* espresso, dark sections */
+  --color-dark-soft: #3d2719;
+
+  /* Text */
+  --color-text: #2a1a12;
+  --color-text-muted: #6e5a4c;
+  --color-text-on-dark: #f6ecdd;
+
+  /* Accents taken from the shop-window sign (Ethiopian flag colours) */
+  --color-green: #1f7a3f;
+  --color-yellow: #e8b931;
+  --color-red: #c2352b;
+
+  /* Main colour for buttons and links */
+  --color-primary: var(--color-red);
+  --color-primary-hover: #a12a21;
+
+  /* Fonts (loaded from Google Fonts in index.html) */
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-body: 'Inter', system-ui, 'Segoe UI', sans-serif;
+
+  /* Spacing and sizes */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 3rem;
+  --space-xl: 5rem;
+  --radius: 12px;
+  --container: 1120px;
+  --header-height: 72px;
+  --shadow: 0 10px 30px rgba(42, 26, 18, 0.08);
+}
+
+/* ---------- Basic reset ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-text);
+  background: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-heading);
+  line-height: 1.15;
+  margin: 0 0 var(--space-sm);
+}
+
+p {
+  margin: 0 0 var(--space-sm);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+}
+
+/* Visible outline for keyboard navigation (accessibility) */
+:focus-visible {
+  outline: 3px solid var(--color-yellow);
+  outline-offset: 3px;
+}
+
+/* ---------- Reusable classes ---------- */
+
+/* Centred content with a maximum width */
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--space-md);
+}
+
+/* Woven three-colour stripe (green, yellow, red), inspired by
+   the "tibeb" borders on traditional Ethiopian fabric */
+.tibeb {
+  height: 6px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--color-green) 0 24px,
+    var(--color-yellow) 24px 48px,
+    var(--color-red) 48px 72px
+  );
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 0.85rem 1.6rem;
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+  border: 2px solid transparent;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: var(--color-primary-hover);
+}
+
+.btn-outline {
+  border-color: currentColor;
+  color: inherit;
+}
+
+.btn-outline:hover {
+  background: var(--color-text-on-dark);
+  color: var(--color-dark);
+}
+
+/* Small label above a heading */
+.eyebrow {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-red);
+  margin-bottom: var(--space-xs);
+}
+
+/* Hides text visually while keeping it for screen readers */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
