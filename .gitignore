@@ -1,0 +1,22 @@
+# Dépendances (réinstallées avec npm install)
+node_modules/
+
+# Fichiers générés par la compilation
+dist/
+build/
+
+# Secrets : mots de passe, clés API (ne jamais les envoyer sur Git)
+.env
+.env.*
+!.env.example
+
+# Bases de données locales (données des clients)
+*.db
+*.sqlite
+*.sqlite-journal
+
+# Journaux et fichiers de l'éditeur
+*.log
+npm-debug.log*
+.DS_Store
+Thumbs.db
